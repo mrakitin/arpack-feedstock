@@ -1,14 +1,6 @@
 #!/bin/sh
 
-if test `uname` = "Darwin"
-then
-  SO_EXT='.dylib'
-else
-  SO_EXT='.so'
-fi
-
-
-mkdir -p build && cd build
+mkdir build && cd build
 
 for shared_libs in OFF ON
 do
@@ -21,5 +13,5 @@ do
 
   make -j${CPU_COUNT}
 done
-cp lib/libarpack${SO_EXT} libarpack.a ${PREFIX}/lib
+cp lib/libarpack${SHLIB_EXT} libarpack.a ${PREFIX}/lib
 DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib make check -j${CPU_COUNT}
