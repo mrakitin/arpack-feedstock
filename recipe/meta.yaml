@@ -1,4 +1,4 @@
-{% set version = "3.4.0" %}
+{% set version = "3.5.0" %}
 {% set variant = "openblas" %}
 
 package:
@@ -8,10 +8,10 @@ package:
 source:
   fn: arpack-{{ version }}.tar.gz
   url: https://github.com/opencollab/arpack-ng/archive/{{ version }}.tar.gz
-  sha256: 69e9fa08bacb2475e636da05a6c222b17c67f1ebeab3793762062248dd9d842f
+  sha256: 50f7a3e3aec2e08e732a487919262238f8504c3ef927246ec3495617dde81239
 
 build:
-  number: 201
+  number: 200
   features:
     - blas_{{ variant }}
   skip: true  # [win]
@@ -19,7 +19,7 @@ build:
 requirements:
   build:
     - toolchain
-    - gcc
+    - gcc  # [unix]
     - cmake
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*

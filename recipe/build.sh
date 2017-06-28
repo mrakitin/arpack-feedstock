@@ -7,11 +7,11 @@ do
   cmake \
     -DCMAKE_PREFIX_PATH=${PREFIX} \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+    -DCMAKE_INSTALL_LIBDIR=lib \
     -DBUILD_SHARED_LIBS=${shared_libs} \
-    -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON \
+    -DCMAKE_EXE_LINKER_FLAGS="-Wl,-rpath,${PREFIX}/lib -L${PREFIX}/lib" \
     ..
 
-  make -j${CPU_COUNT}
+  make install -j${CPU_COUNT}
 done
-cp lib/libarpack${SHLIB_EXT} libarpack.a ${PREFIX}/lib
-DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib make check -j${CPU_COUNT}
+make check -j${CPU_COUNT}
