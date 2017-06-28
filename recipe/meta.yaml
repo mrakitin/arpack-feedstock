@@ -25,8 +25,8 @@ requirements:
     - openblas 0.2.19|0.2.19.*
 
   run:
-    - libgfortran
-    - libgcc
+    - libgfortran  # [osx]
+    - libgcc  # [linux]
     - blas 1.1 {{ variant }}
     - openblas 0.2.19|0.2.19.*
 
