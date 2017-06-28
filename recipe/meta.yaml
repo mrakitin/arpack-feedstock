@@ -30,10 +30,12 @@ requirements:
     - openblas 0.2.19|0.2.19.*
 
 test:
+  requirements:
+    - python
   commands:
     - test -f ${PREFIX}/lib/libarpack.a  # [unix]
-    - test -f ${PREFIX}/lib/libarpack.so  # [linux]
-    - test -f ${PREFIX}/lib/libarpack.dylib  # [osx]
+    - python -c "import ctypes; ctypes.cdll['$PREFIX/lib/libarpack.so']"  # [linux]
+    - python -c "import ctypes; ctypes.cdll['$PREFIX/lib/libarpack.dylib']"  # [osx]
 
 about:
   home: https://github.com/opencollab/arpack-ng
