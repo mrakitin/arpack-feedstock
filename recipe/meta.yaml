@@ -35,8 +35,7 @@ test:
     - python
   commands:
     - test -f ${PREFIX}/lib/libarpack.a  # [unix]
-    - python -c "import ctypes; ctypes.cdll['$PREFIX/lib/libarpack.so']"  # [linux]
-    - python -c "import ctypes; ctypes.cdll['$PREFIX/lib/libarpack.dylib']"  # [osx]
+    - python -c "import ctypes; ctypes.cdll['${PREFIX}/lib/libarpack${SHLIB_EXT}']"  # [unix]
 
 about:
   home: https://github.com/opencollab/arpack-ng
