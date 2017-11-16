@@ -31,7 +31,7 @@ requirements:
     - openblas 0.2.19|0.2.19.*
 
 test:
-  requirements:
+  requires:
     - python
   commands:
     - test -f ${PREFIX}/lib/libarpack.a  # [unix]
