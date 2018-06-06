@@ -14,4 +14,4 @@ do
 
   make install -j${CPU_COUNT}
 done
-make check -j${CPU_COUNT}
+ctest --output-on-failure -j${CPU_COUNT}
