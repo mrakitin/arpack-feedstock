@@ -31,7 +31,7 @@ requirements:
 test:
   commands:
     - test -f ${PREFIX}/lib/libarpack.a  # [unix]
-    - test -f ${PREFIX}/lib/libarpack.${SHLIB_EXT}  # [unix]
+    - test -f ${PREFIX}/lib/libarpack${SHLIB_EXT}  # [unix]
 
 about:
   home: https://github.com/opencollab/arpack-ng
