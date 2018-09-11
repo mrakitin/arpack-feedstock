@@ -11,7 +11,7 @@ source:
   sha256: 673c8202de996fd3127350725eb1818e534db4e79de56d5dcee8c00768db599a
 
 build:
-  number: 0
+  number: 1
   features:
     - blas_{{ variant }}
   skip: true  # [win]
@@ -24,11 +24,9 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - blas 1.1 {{ variant }}
-    - openblas
 
   run:
     - blas 1.1 {{ variant }}
-    - openblas
 
 test:
   requires:
