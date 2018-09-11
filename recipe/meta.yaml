@@ -11,7 +11,7 @@ source:
   sha256: 673c8202de996fd3127350725eb1818e534db4e79de56d5dcee8c00768db599a
 
 build:
-  number: 1
+  number: 200
   features:
     - blas_{{ variant }}
   skip: true  # [win]
@@ -29,11 +29,9 @@ requirements:
     - blas 1.1 {{ variant }}
 
 test:
-  requires:
-    - python
   commands:
     - test -f ${PREFIX}/lib/libarpack.a  # [unix]
-    - python -c "import ctypes; ctypes.cdll['${PREFIX}/lib/libarpack${SHLIB_EXT}']"  # [unix]
+    - test -f ${PREFIX}/lib/libarpack.${SHLIB_EXT}  # [unix]
 
 about:
   home: https://github.com/opencollab/arpack-ng
