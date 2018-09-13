@@ -24,9 +24,11 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - blas 1.1 {{ variant }}
+    - openblas  # [not win]
 
   run:
     - blas 1.1 {{ variant }}
+    - openblas  # [not win]
 
 test:
   commands:
