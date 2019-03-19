@@ -22,11 +22,7 @@ requirements:
     - {{ compiler('m2w64_c') }}  # [win]
   host:
     - libblas
-    - libcblas
-    - m2w64-openblas  # [win]
-
-  run:
-    - m2w64-openblas  # [win]
+    - liblapack
 
 test:
   commands:
