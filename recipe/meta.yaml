@@ -1,5 +1,4 @@
 {% set version = "3.6.3" %}
-{% set variant = "openblas" %}
 
 package:
   name: arpack
@@ -11,9 +10,8 @@ source:
   sha256: 64f3551e5a2f8497399d82af3076b6a33bf1bc95fc46bbcabe66442db366f453
 
 build:
-  number: 1002
+  number: 1003
   features:
-    - blas_{{ variant }}  # [unix]
 
 requirements:
   build:
@@ -23,13 +21,11 @@ requirements:
     - {{ compiler('m2w64_fortran') }}  # [win]
     - {{ compiler('m2w64_c') }}  # [win]
   host:
-    - blas 1.1 {{ variant }}  # [unix]
-    - openblas  # [unix]
+    - libblas
+    - libcblas
     - m2w64-openblas  # [win]
 
   run:
-    - blas 1.1 {{ variant }}  # [unix]
-    - openblas  # [unix]
     - m2w64-openblas  # [win]
 
 test:
