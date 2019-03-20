@@ -9,7 +9,8 @@ do
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_INSTALL_LIBDIR=lib \
     -DBUILD_SHARED_LIBS=${shared_libs} \
-    -DCMAKE_EXE_LINKER_FLAGS="-Wl,-rpath,${PREFIX}/lib -L${PREFIX}/lib" \
+    -DLAPACK_LIBRARIES="-llapack" \
+    -DBLAS_LIBRARIES="-lblas" \
     ..
 
   make install -j${CPU_COUNT}
