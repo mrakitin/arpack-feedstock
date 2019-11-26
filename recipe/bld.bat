@@ -9,7 +9,8 @@ mkdir build && cd build
 cmake -G "MinGW Makefiles" ^
   -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX:\=/%/mingw-w64 ^
   -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX:\=/%/mingw-w64 ^
-  -DBUILD_SHARED_LIBS=no ^
+  -DBUILD_SHARED_LIBS=OFF ^
+  -DICB=ON ^
   ..
 if errorlevel 1 exit 1
 
@@ -21,7 +22,8 @@ if errorlevel 1 exit 1
 cmake -G "MinGW Makefiles" ^
   -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX:\=/%/mingw-w64 ^
   -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX:\=/%/mingw-w64 ^
-  -DBUILD_SHARED_LIBS=yes ^
+  -DBUILD_SHARED_LIBS=ON ^
+  -DICB=ON ^
   ..
 if errorlevel 1 exit 1
 
