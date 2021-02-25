@@ -5,7 +5,7 @@ set -x
 mkdir build && cd build
 
 if [[ "$(echo $fortran_compiler_version | cut -d '.' -f 1)" -gt 9 ]]; then
-  export FCFLAGS="$FCFLAGS -fallow-argument-mismatch"
+  export FFLAGS="$FFLAGS -fallow-argument-mismatch"
 fi
 
 for shared_libs in OFF ON
