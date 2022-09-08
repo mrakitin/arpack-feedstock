@@ -9,12 +9,13 @@ source:
   url: https://github.com/opencollab/arpack-ng/archive/{{ version }}.tar.gz
   sha256: ada5aeb3878874383307239c9235b716a8a170c6d096a6625bfd529844df003d
 
+script:
+  - build-mpi.sh  # [not win and mpi != 'nompi']
+  - build-no-mpi.sh  # [not win and mpi == 'nompi']
+  - bld-no-mpi.bat  # [win]
+
 build:
   number: 0
-  script:
-    - build-mpi.sh  # [not win and mpi != 'nompi']
-    - build-no-mpi.sh  # [not win and mpi == 'nompi']
-    - bld-no-mpi.bat  # [win]
   run_exports:
     - {{ pin_subpackage('arpack', max_pin='x.x') }}
 
