@@ -1,8 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 set -x
 
-rm -rfv build
 mkdir build && cd build
 
 if [[ "$(echo $fortran_compiler_version | cut -d '.' -f 1)" -gt 9 ]]; then
