@@ -19,7 +19,7 @@ do
     -DLAPACK_LIBRARIES="-llapack" \
     -DBLAS_LIBRARIES="-lblas" \
     -DICB=ON \
-    -DMPI=ON \
+    -DMPI=${DMPI} \
     ..
   make install -j${CPU_COUNT} VERBOSE=1
 done
